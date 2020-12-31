@@ -1,0 +1,131 @@
+img {
+  width: auto;
+}
+.clearfix {
+  text-align: left;
+}
+.amado_product_area {
+  background-color: white;
+}
+.btn-nav  {
+  font-size: 20px;
+  font-weight: 600;
+}
+.btn-nav:hover {
+  color: white;
+}
+.product-price {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fbb710;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.line {
+  width: 80px;
+  height: 3px;
+  background-color: #fbb710;
+  margin-bottom: 15px;
+  display: block;
+}
+.proDetail {
+  margin-top:100px ;
+  width: 75%;
+}
+.main-content-wrapper  {
+background-color: white;
+}
+.proNameDtl {
+  font-size: 35px;
+    color: black;
+}
+.ratings i {
+  font-size: 10px;
+  color: #fbb710;
+}
+.review a {
+  display: inline-block;
+  color: #6b6b6b;
+  font-size: 14px;
+  font-weight: 700;
+
+}
+.avaibility i {
+  color: #20d34a;
+  font-size: 12px;
+}
+.avaibility {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #6b6b6b;
+  line-height: 1;
+}
+.short_overview p {
+  line-height: 2.1;
+  color: #6b6b6b;
+  font-size: 16px;
+  font-weight: 600;
+}
+.mb-50 {
+  margin-bottom: 50px !important;
+}
+.quantity {
+  position: relative;
+  z-index: 1;
+}
+.qty-minus {
+  position: absolute;
+  top: 21px;
+  right: 0;
+  line-height: 1;
+  width: 30px;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+  color: #959595;
+}
+.qty-plus {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  height: 20px;
+  cursor: pointer;
+  color: #959595;
+}
+.quantity input {
+  text-align: center;
+  background-color: #f5f7fa;
+  height: 40px;
+  width: 100px;
+  border: none;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  color: #959595;
+}
+.cart p {
+  margin-bottom: 0;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 15px;
+  background-color: #f5f7fa;
+}
+.amado-btn:hover,.amado-btn:focus {
+  color:white;
+}
+.amado-btn {
+  display: inline-block;
+  min-width: 160px;
+  height: 55px;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  padding: 0 7px;
+  font-size: 18px;
+  line-height: 56px;
+  background-color: #fbb710;
+  font-weight: 400;
+}

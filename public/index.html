@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/core-style.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
+    
+    <!-- css admin -->
+    <link href="%PUBLIC_URL%/assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="%PUBLIC_URL%/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/lineicons/style.css">    
+    <link href="%PUBLIC_URL%/assets/css/login.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="%PUBLIC_URL%/assets/css/style.css" rel="stylesheet">
+    <link href="%PUBLIC_URL%/assets/css/core-style.css" rel="stylesheet">
+    <link href="%PUBLIC_URL%/assets/css/style-responsive.css" rel="stylesheet">
+
+    
+    <!-- css admin -->
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <!-- <link rel="stylesheet" href="%PUBLIC_URL%/css/login.css"> -->
+    <title>Game Shop</title>
+    <!-- <script type='text/javascript'>
+      //<![CDATA[
+      var pictureSrc ="%PUBLIC_URL%/1.png"; //the location of the snowflakes
+      var pictureWidth = 20; //the width of the snowflakes
+      var pictureHeight = 20; //the height of the snowflakes
+      var numFlakes = 10; //the number of snowflakes
+      var downSpeed = 0.01; //the falling speed of snowflakes (portion of screen per 100 ms)
+      var lrFlakes = 10; //the speed that the snowflakes should swing from side to side
+      
+      
+      if( typeof( numFlakes ) != 'number' || Math.round( numFlakes ) != numFlakes || numFlakes < 1 ) { numFlakes = 10; }
+      
+      //draw the snowflakes
+      for( var x = 0; x < numFlakes; x++ ) {
+      if( document.layers ) { //releave NS4 bug
+      document.write('<layer id="snFlkDiv'+x+'"><imgsrc="'+pictureSrc+'" height="'+pictureHeight+'"width="'+pictureWidth+'" alt="*" border="0" ></layer>');
+      } else {
+      document.write('<div style="position:absolute; z-index:9999;"id="snFlkDiv'+x+'"><img  src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
+      }
+      }
+      
+      //calculate initial positions (in portions of browser window size)
+      var xcoords = new Array(), ycoords = new Array(), snFlkTemp;
+      for( var x = 0; x < numFlakes; x++ ) {
+      xcoords[x] = ( x + 1 ) / ( numFlakes + 1 );
+      do { snFlkTemp = Math.round( ( numFlakes - 1 ) * Math.random() );
+      } while( typeof( ycoords[snFlkTemp] ) == 'number' );
+      ycoords[snFlkTemp] = x / numFlakes;
+      }
+      
+      //now animate
+      function flakeFall() {
+      if( !getRefToDivNest('snFlkDiv0') ) { return; }
+      var scrWidth = 0, scrHeight = 0, scrollHeight = 0, scrollWidth = 0;
+      //find screen settings for all variations. doing this every time allows for resizing and scrolling
+      if( typeof( window.innerWidth ) == 'number' ) { scrWidth = window.innerWidth; scrHeight = window.innerHeight; } else {
+      if( document.documentElement && (document.documentElement.clientWidth ||document.documentElement.clientHeight ) ) {
+      scrWidth = document.documentElement.clientWidth; scrHeight = document.documentElement.clientHeight; } else {
+      if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+      scrWidth = document.body.clientWidth; scrHeight = document.body.clientHeight; } } }
+      if( typeof( window.pageYOffset ) == 'number' ) { scrollHeight = pageYOffset; scrollWidth = pageXOffset; } else {
+      if( document.body && ( document.body.scrollLeft ||document.body.scrollTop ) ) { scrollHeight = document.body.scrollTop;scrollWidth = document.body.scrollLeft; } else {
+      if(document.documentElement && (document.documentElement.scrollLeft ||document.documentElement.scrollTop ) ) { scrollHeight =document.documentElement.scrollTop; scrollWidth =document.documentElement.scrollLeft; } }
+      }
+      //move the snowflakes to their new position
+      for( var x = 0; x < numFlakes; x++ ) {
+      if( ycoords[x] * scrHeight > scrHeight - pictureHeight ) { ycoords[x] = 0; }
+      var divRef = getRefToDivNest('snFlkDiv'+x); if( !divRef ) { return; }
+      if( divRef.style ) { divRef = divRef.style; } var oPix = document.childNodes ? 'px' : 0;
+      divRef.top = ( Math.round( ycoords[x] * scrHeight ) + scrollHeight ) + oPix;
+      divRef.left = ( Math.round( ( ( xcoords[x] * scrWidth ) - (pictureWidth / 2 ) ) + ( ( scrWidth / ( ( numFlakes + 1 ) * 4 ) ) * (Math.sin( lrFlakes * ycoords[x] ) - Math.sin( 3 * lrFlakes * ycoords[x]) ) ) ) + scrollWidth ) + oPix;
+      ycoords[x] += downSpeed;
+      }
+      }
+      
+      //DHTML handlers
+      function getRefToDivNest(divName) {
+      if( document.layers ) { return document.layers[divName]; } //NS4
+      if( document[divName] ) { return document[divName]; } //NS4 also
+      if( document.getElementById ) { return document.getElementById(divName); } //DOM (IE5+, NS6+, Mozilla0.9+, Opera)
+      if( document.all ) { return document.all[divName]; } //Proprietary DOM - IE4
+      return false;
+      }
+      
+      window.setInterval('flakeFall();',100);
+      //]]>
+      </script>   -->
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="%PUBLIC_URL%/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="%PUBLIC_URL%/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="%PUBLIC_URL%/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <!-- <script src="%PUBLIC_URL%/js/plugins.js"></script> -->
+    <!-- Active js -->
+    <!-- <script src="%PUBLIC_URL%/js/active.js"></script> -->
+
+    <!-- js admin -->
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <!-- <script src="assets/js/common-scripts.js"></script> -->
+    <script src="%PUBLIC_URL%/assets/js/chart-master/Chart.js"></script>
+
+  </body>
+</html>
