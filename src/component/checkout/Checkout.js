@@ -49,16 +49,7 @@ class Checkout extends Component {
                       <input type="email" className="form-control" defaultValue={this.state.email} id="email" placeholder="Email" />
                     </div>
                     <div className="col-12 mb-3">
-                      {/* <select className="w-100" id="country" style={{ display: 'none' }}>
-                        <option value="usa">United States</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="ger">Germany</option>
-                        <option value="fra">France</option>
-                        <option value="ind">India</option>
-                        <option value="aus">Australia</option>
-                        <option value="bra">Brazil</option>
-                        <option value="cana">Canada</option>
-                      </select><div className="nice-select w-100 open" tabIndex={0}><span className="current">United States</span><ul className="list"><li data-value="usa" className="option selected focus">United States</li><li data-value="uk" className="option">United Kingdom</li><li data-value="ger" className="option">Germany</li><li data-value="fra" className="option">France</li><li data-value="ind" className="option">India</li><li data-value="aus" className="option">Australia</li><li data-value="bra" className="option">Brazil</li><li data-value="cana" className="option">Canada</li></ul></div> */}
+                      
                     </div>
                     <div className="col-12 mb-3">
                       <input type="text" className="form-control mb-3" id="street_address" defaultValue={this.state.address} placeholder="Address" />

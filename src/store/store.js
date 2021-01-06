@@ -24,17 +24,12 @@ const allReducer = (state = noteInitialState, action) => {
                     productlist.push(element.val());
 
                 });
-                // console.log(productlist);
-                // state.products = productlist;
-                // console.log(state.products);
 
                 return { ...state, products: productlist }
-                // console.log(state.products);
 
             })
 
         case 'ADD_TO_CART':
-            // console.log(action.getItem);
             console.log(action.getItem);
             console.log(state.carts);
             var i = 0;
@@ -53,14 +48,11 @@ const allReducer = (state = noteInitialState, action) => {
                     }
                 })
             state.cartLength = state.carts.length;
-            // console.log(state.carts.length);      
             localStorage.setItem('carts', JSON.stringify(state.carts));
             console.log(state.carts);
             return state;
         case 'GET_TOTAL':
-            // state.carts.push(action.getItem)
-            // localStorage.setItem('carts',JSON.stringify(state.carts));
-            // console.log(state.carts);
+
             var total = 0;
             state.carts.forEach(element => {
                 total += element.quantity * element.price;
@@ -68,7 +60,7 @@ const allReducer = (state = noteInitialState, action) => {
             return { ...state, totalCarts: total };
         case 'ADD_BILL':
             console.log(action.userId);
-            alert('cảm ơn bạn đã mua hàng !!!')
+            alert('cảm ơn bạn đã mua !!!')
             dataGame.ref('users/' + action.userId + '/bills').push(action.bill);
             localStorage.setItem('carts', []);
             return { ...state, carts: [] };
@@ -92,45 +84,6 @@ const allReducer = (state = noteInitialState, action) => {
         case 'GET_USERLOGIN':
             console.log(action.getUser);
             return {...state,userLogin : action.getUser}
-        
-        // case 'DELETE_PRODUCT':
-
-        //     return {...state,AlertShow : false}
-        // case 'ADD_USER':
-        //     return {...state,AlertShow : true,alertContent:action.alertContent,alertType:action.alertType}
-        // case 'ADD_ADMIN':
-        //     return {...state,editItem : action.editObject}
-        // case 'DELETE_ADMIN':
-        //     return {...state,editItem : action.editObject}
-        // case 'UPDATE_ADMIN':
-        //     return {...state,editItem : action.editObject}
-        // case 'DELETE_USER':
-        //     console.log(action.deleteId);
-        //     noteData.child(action.deleteId).remove();
-        //     return state
-        // case 'UPDATE_USER':
-        //     noteData.child(action.getItem.id).update({
-        //         noteTitle : action.getItem.noteTitle,
-        //         noteContent : action.getItem.noteContent
-        //     })
-        //     console.log('cap nhap du lieu  :'+JSON.stringify(action.getItem)+ 'thanh cong');
-        //     return {...state,editItem : {}}
-        // case 'GET_BILL':
-        //     console.log(action.deleteId);
-        //     noteData.child(action.deleteId).remove();
-        //     return state
-
-        // case 'ADD_BILL':
-        //     console.log(action.deleteId);
-        //     noteData.child(action.deleteId).remove();
-        //     return state
-
-        // case 'DELETE_BILL':
-        //     console.log(action.deleteId);
-        //     noteData.child(action.deleteId).remove();
-        //     return state
-
-
 
         default:
             return state
@@ -138,17 +91,5 @@ const allReducer = (state = noteInitialState, action) => {
 
 }
 var store = redux.createStore(allReducer);
-
-
-// var productlist = [];
-// dataGame.ref('products').on('value',(products)=>{
-//     products.forEach(element => {
-//         productlist.push(element.val());
-
-//     });
-//     console.log(productlist);
-//     store.getState().products = productlist;
-//     console.log(store.getState().products.length);});
-
 
 export default store;

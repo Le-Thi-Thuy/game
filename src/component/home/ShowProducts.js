@@ -18,18 +18,7 @@ class ShowProducts extends Component {
   }
 
   componentDidMount = () => {
-  //   getProductsa().then(res => {
-  //     console.log(res);
-  //     this.setState({
-  //       products: res
-  //     });   
-  //   })
-   
-  //  getCategories().then(res => {
-  //    this.setState({
-  //      categories: res
-  //    });   
-  //  })
+ 
   this.getProducts();
   this.getCategories();
   }
@@ -79,10 +68,6 @@ class ShowProducts extends Component {
 
 
   render() {
-    // const status= this.props.status;
-    // if (status === false) return <div>...Loading</div>
-    // if (status === 'ERROR') return <div>...Error from server</div>
-    // const products = this.props.products;
     console.log(this.state.products);
     return (
       [<Categories key='1' />,
@@ -157,8 +142,7 @@ class ShowProducts extends Component {
 
 const mapStateToProps = state => (
   {
-    // status: state.productReducer.status,
-    // products: state.productReducer.productList
+    
   });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

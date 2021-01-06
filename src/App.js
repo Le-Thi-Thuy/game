@@ -36,10 +36,7 @@ class App extends Component  {
     return (
             <Router>
             <Route path="/" exact render={()=>(<UserInterface><ShowProducts/></UserInterface>)} />
-           {/* <Route path="/checkout"  render={()=>(<UserInterface><Checkout/></UserInterface>)}/> */}
-       
-           {/* <Route path="/productDetail/${id}" location={this.props.location} 
-     render={(props)=>(<UserInterface><ProductDetails /></UserInterface>)}/> */}
+          
        
            <Route path="/cart" render={()=>(<UserInterface><Cart/></UserInterface>)}/>
            <Route path="/productDetail/:id" component={ProductDetails}/>

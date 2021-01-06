@@ -60,14 +60,7 @@ class FormCategory extends Component {
         );
     }
 }
-// const mapDispatchToProps  = (dispatch, ownProps) => {
-//     return {     
-//         addProduct: (getItem) => {
-//             dispatch({type:"ADD_PRODUCT",getItem})
-//         }             
-        
-//     }
-// }
+
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         addCategory: (getItem) => {

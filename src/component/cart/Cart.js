@@ -62,20 +62,7 @@ class Cart extends Component {
     this.setState({ carts: this.props.carts });
     localStorage.setItem('carts', JSON.stringify(this.state.carts))
   }
-  // qty = (action, item, index) => {
-  //   console.log(item);
-  //   console.log(this.state.carts[index]);
-  //   if (action == 'add') {
-  //     this.state.carts[index]['quantity'] = this.state.carts[index]['quantity'] + 1;
-  //   } else {
-  //     this.state.carts[index]['quantity'] = (this.state.carts[index]['quantity'] - 1 <= 0) ? 0 : this.state.carts[index]['quantity'] - 1;
-  //     if (this.state.carts[index]['quantity'] - 1 <= 0) {
-  //       this.state.carts.splice(index, 1);
-  //     }
-  //   }
-  //   // this.setState({ carts: this.props.carts });
-  //   localStorage.setItem('carts', JSON.stringify(this.state.carts))
-  // }
+ 
 
 
   render() {
